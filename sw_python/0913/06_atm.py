@@ -25,10 +25,11 @@ def deposit():
 def widthdraw():
     global balance
     amount = int(input("인출하실 금액을 입력해주세요 : "))
-    amount = balance - amount
+    balance = balance - amount
     if amount > balance:
         print("잔액이 부족합니다.")
-    print(f"현재 잔액은 {balance}입니다.")
+    else:
+        print(f"현재 잔액은 {balance}입니다.")
 
 user_pin = int(input("암호를 입력하세요 : "))
 if pin != user_pin:
@@ -36,7 +37,7 @@ if pin != user_pin:
     sys.exit()
 
 while True:
-    query = int(input("사용할 동작을 선택하세요 : | 1-잔액보기 | | 2- 입금하기 | | 3- 인출하기 | | 4- 종료 | "))
+    query = int(input("사용할 동작을 선택하세요 : | 1- 잔액보기 | | 2- 입금하기 | | 3- 인출하기 | | 4- 종료 | : "))
     if query == 1:      # 이 조건을 만족한다면 함수 호출
         get_balance()   
     elif query == 2:
@@ -44,4 +45,5 @@ while True:
     elif query == 3:
         widthdraw()
     elif query ==4:
-        sys.exit
+        print("이용해주셔서 감사합니다.")
+        sys.exit()
